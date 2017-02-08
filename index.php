@@ -38,17 +38,16 @@
                 </a>
               </li >
             </ul>
-                <p> Article du jour: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <p>  <?php include "billets/$_GET[content]"; ?> </p>
             </article>
         <!-- ********************PHP************************** -->
             <aside class="element2">
               <ul>
                 <?php
-                  $entries= scandir("billets");
+                  $entries= scandir("billets", SCANDIR_SORT_DESCENDING);
                     foreach($entries as $entry){
                       if($entry !="."&& $entry !=".."){
-                        echo "<li><a href='billets/$entry' target='#here'>$entry</a><li>\n";
+                        echo "<li><a href='index.php?content=$entry'>$entry</a><li>\n";
                                                 }
                                                       }
               ?>

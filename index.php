@@ -30,7 +30,7 @@
                 </a>
               </li>
               <li class="inline">
-                <h3 > Date </h3>
+                <h3 > Article of This Day </h3>
               </li>
               <li class="inline">
                 <a href="#" target="_blank">
@@ -47,9 +47,11 @@
                   $entries= scandir("billets", SCANDIR_SORT_DESCENDING);
                     foreach($entries as $entry){
                       if($entry !="."&& $entry !=".."){
-                        echo "<li><a href='index.php?content=$entry'>$entry</a><li>\n";
+                        $rest= pathinfo($entry);
+                        echo '<li><a href="index.php?content=' . $entry .'">' . $rest['filename'] . '</a><li>';
                                                 }
                                                       }
+
               ?>
             </ul>
           </aside>

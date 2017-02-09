@@ -21,11 +21,50 @@
         </header>
       </div>
       <!--*************************************HEADER********************************-->
+
+        <?php
+        /*pas encore compris
+          $articles_dir = "billets";
+          $show_article = false;
+          if(isset($_GET['content']))
+          {
+            article_path = "$article_dir/" . $_GET["content"] . ".php";
+          if (
+            dirname(
+              realpath($article_path)
+                    )==(
+                realpath("./$article_dir")
+                        )
+            )
+           {
+            $show_article = true;
+      ?>
+            <nav>
+              <ul>
+                <li><a href=".">INDEX</a></li>
+              </u>
+            </nav>
+            <main>
+              <?php include($article_path); ?>
+              <?php
+          }
+}
+if(!$show_article)
+{
+*/
+  ?>
+<?php
+  $entries= scandir("billets", SCANDIR_SORT_DESCENDING);
+  $current_article = array_search($_GET[content],$entries);
+  $previous_article =$entries[$current_article - 1];
+  $next_article =$entries[$current_article + 1]; ?>
+
+
       <main id="container">
           <article class="element1">
             <ul id="nav">
               <li class="inline">
-                <a href="#" target="_blank">
+                <a href="index.php?content=<?=  $previous_article ?>" >
                   <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
                 </a>
               </li>
@@ -33,7 +72,7 @@
                 <h3 > Article of This Day </h3>
               </li>
               <li class="inline">
-                <a href="#" target="_blank">
+                <a href="index.php?content=<?= $next_article ?>" >
                   <i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>
                 </a>
               </li >
@@ -41,6 +80,7 @@
                 <p>  <?php include "billets/$_GET[content]"; ?> </p>
             </article>
         <!-- ********************PHP************************** -->
+
             <aside class="element2">
               <ul>
                 <?php
@@ -52,7 +92,11 @@
                                                 }
                                                       }
 
+
               ?>
+
+
+
             </ul>
           </aside>
       </main>

@@ -16,6 +16,14 @@ header{
   justify-content: space-between;
   align-items: flex-end;
 }
+footer{
+  height: 15vh;
+  border-top: 2px solid black;
+  background-image: url(../images/footer.jpg);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 #logo{
   display: flex;
   flex-direction: row;
